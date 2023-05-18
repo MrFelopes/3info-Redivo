@@ -58,6 +58,10 @@ export default function BuscarFruta({ navigation }) {
             />
             <Button
                 mode="contained"
+                onPress={() => { queryProdutos("todos")}}
+            >Mostrar todos os produtos</Button>
+            <Button
+                mode="contained"
                 onPress={() => { navigation.goBack() }}
             >Voltar</Button>
         </View>
