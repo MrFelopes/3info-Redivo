@@ -3,7 +3,8 @@ import { Button, Text, TextInput } from "react-native-paper";
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
-export default function BuscarFruta({ navigation }) {
+import styles from "../utils/styles";
+export default function BuscarProduto({ navigation }) {
     const [nomeDoProduto, setNomeDoProduto] = useState("");
     const [produtos, setProdutos] = useState([])
     async function queryProdutos(nomeDoProduto = null) {
@@ -41,28 +42,38 @@ export default function BuscarFruta({ navigation }) {
     useEffect(() => {
         queryProdutos(nomeDoProduto);
     }, [nomeDoProduto])
-    
+
     return (
-        <View>
-            <Text>Buscar Produto</Text>
-            <Text>Digite o nome de um produto em espécifico, ou digite "todos" para mostrar todos os itens.</Text>
+        
+        <View style={styles.container}>
+            <Text style={styles.title}>Buscar Produto</Text>
+            <Text style={styles.subtitle}>Digite o nome de um produto em espécifico (primeira letra maiúscula), ou digite "todos" para mostrar todos os itens.</Text>
             <TextInput
                 label='Digite o nome do produto'
                 value={nomeDoProduto}
                 onChangeText={setNomeDoProduto}
+                underlineColor="#fff"
+                style={styles.input}
+                theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#d3d3d3",
+                        onSurfaceVariant: "#ececec",
+                    }}
+                    
+                }
+                outlineColor="#fff"
+                
             />
             <FlatList
                 data={produtos}
-                renderItem={({ item }) => <Text>Produto: {item.NomeDoProduto}, preço: {item.PrecoDoProduto}, disponível: {item.QuantidadeProduto}</Text>}
+                renderItem={({ item }) => <Text style={styles.result}>Produto: {item.NomeDoProduto}, preço: {item.PrecoDoProduto}, disponível: {item.QuantidadeProduto}</Text>}
                 keyExtractor={(item) => item.id}
             />
             <Button
                 mode="contained"
-                onPress={() => { queryProdutos("todos")}}
-            >Mostrar todos os produtos</Button>
-            <Button
-                mode="contained"
                 onPress={() => { navigation.goBack() }}
+                style={styles.backButton}
             >Voltar</Button>
         </View>
     )

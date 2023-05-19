@@ -3,6 +3,7 @@ import { Button, Text, TextInput } from "react-native-paper";
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
+import styles from "../utils/styles";
 
 export default function BuscarAnimal({navigation}){
     const [nomeDoAnimal, setNomeDoAnimal] = useState("");
@@ -43,26 +44,35 @@ export default function BuscarAnimal({navigation}){
     }, [nomeDoAnimal])
 
     return(
-        <View>
-            <Text>Buscar Animal</Text>
-            <Text>Digite uma espécie em específico (primeira letra maiúscula), ou digite "todos" para ver todos os animais.</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>Buscar Animal</Text>
+            <Text style={styles.subtitle}>Digite uma espécie em específico (primeira letra maiúscula), ou digite "todos" para ver todos os animais.</Text>
             <TextInput
                 label="Digite a espécie do animal"
                 value={nomeDoAnimal}
                 onChangeText={setNomeDoAnimal}
+                underlineColor="#fff"
+                style={styles.input}
+                theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#d3d3d3",
+                        onSurfaceVariant: "#ececec",
+                    }}
+                    
+                }
+                outlineColor="#fff"
             />
             <FlatList 
                 data={animais}
-                renderItem={({item}) => <Text>Nome: {item.nome}, espécie: {item.especie}, raça: {item.raca}</Text>}
+                renderItem={({item}) => <Text style={styles.result}>Nome: {item.nome}, espécie: {item.especie}, raça: {item.raca}</Text>}
                 keyExtractor={(item) => item.id}
+                
             />
             <Button
                 mode="contained"
-                onPress={()=>{queryAnimais("todos")}}
-            >Mostrar todos os animais</Button>
-            <Button
-                mode="contained"
                 onPress={()=>{navigation.goBack()}}
+                style={styles.backButton}
             >Voltar</Button>
         </View>
     )
