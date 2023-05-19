@@ -18,49 +18,84 @@ export default function RootNavigation() {
                     name="Home"
                     component={HomeScreen}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Home)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
                     }}
+                    
                 />
                 <Stack.Screen
                     name="BuscarProduto"
                     component={BuscarProduto}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Buscar produto)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
+                        headerLeft: null,
                     }}
                 />
                 <Stack.Screen
                     name="BuscarAnimal"
                     component={BuscarAnimal}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Buscar animal)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
+                        headerLeft: null,
                     }}
                 />
                 <Stack.Screen
                     name="BuscarPessoa"
                     component={BuscarPessoa}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Buscar pessoa)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
+                        headerLeft: null,
                     }}
                 />
                 <Stack.Screen
                     name="BuscarCarro"
                     component={BuscarCarro}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Buscar carro)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
+                        headerLeft: null,
                     }}
                 />
                 <Stack.Screen
                     name="BuscarFruta"
                     component={BuscarFruta}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Buscar fruta)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
+                        headerLeft: null,
                     }}
                 />
                 <Stack.Screen
                     name="BuscarCor"
                     component={BuscarCor}
                     options={{
-                        headerShown: false,
+                        title: "Trabalho Fausto - Felipe Redivo Fragoso (Buscar cor)",
+                        headerStyle:{
+                            backgroundColor: "#444",
+                        },
+                        headerTintColor: "#ececec",
+                        headerLeft: null,
                     }}
                 />
             </Stack.Navigator>

@@ -65,7 +65,7 @@ export default function BuscarCarro({ navigation }) {
             />
             <FlatList
                 data={carros}
-                renderItem={({ item }) => <Text>Marca: {item.fabricante}, nome: {item.nome}, ano: {item.ano}, condição: {item.condicao}</Text>}
+                renderItem={({ item }) => <Text style={styles.result}>Marca: {item.fabricante}, nome: {item.nome}, ano: {item.ano}, condição: {item.condicao}</Text>}
                 keyExtractor={(item) => item.id}
             />
             <Button
